@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    /* Basic body styling with a romantic background */
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+    /* Container styling with a smooth transition for the slide-out effect */
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 10px;
+      transition: transform 1s ease;
+    }
+    /* Class to trigger the slide-out animation */
+    .slide-out {
+      transform: translateX(100vw);
+    }
+    /* Heart icon styling and animation */
+    .heart {
+      font-size: 4em;
+      color: #ff0000;
+      animation: beat 1s infinite;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    /* Button styling */
+    button {
+      font-size: 1.2em;
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button.yes {
+      background-color: #4CAF50;
+      color: white;
+    }
+    button.no {
+      background-color: #f44336;
+      color: white;
+    }
+    /* Feedback message styling */
+    #feedback {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #f44336;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <div class="heart">&#10084;</div>
+    <h1>Will You Be My Valentine?</h1>
+    <button class="yes" id="yesBtn">Yes</button>
+    <button class="no" id="noBtn">No</button>
+    <div id="feedback"></div>
+  </div>
+
+  <script>
+    // When the "Yes" button is clicked, add the slide-out animation and then redirect
+    document.getElementById('yesBtn').addEventListener('click', function() {
+      var container = document.getElementById('container');
+      container.classList.add('slide-out');
+      // Wait for the animation to complete (1 second) before redirecting
+      setTimeout(function(){
+        window.location.href = 'valentine.html';
+      }, 1000);
+    });
+
+    // When the "No" button is clicked, display the "Incorrect!" message
+    document.getElementById('noBtn').addEventListener('click', function() {
+      document.getElementById('feedback').textContent = 'Incorrect!';
+    });
+  </script>
+</body>
+</html>
